@@ -102,6 +102,93 @@
       .content-wrapper {
   flex: 1;
 }
+/* ===== Navbar Toggler Style ===== */
+.navbar-toggler {
+  border: none;
+  position: relative;
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 1051; /* lebih tinggi dari navbar */
+  background: transparent;
+  margin-right: 12px; /* geser kiri sedikit dari tepi kanan */
+  transition: margin-right 0.3s ease;
+}
+.navbar-toggler {
+  margin-right: 15px; /* geser dari kanan */
+}
+
+/* Geser sedikit lebih banyak di layar kecil */
+@media (max-width: 576px) {
+  .navbar-toggler {
+    margin-right: 16px;
+  }
+}
+
+/* Garis toggler */
+.navbar-toggler span,
+.navbar-toggler span::before,
+.navbar-toggler span::after {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  border-radius: 3px;
+  opacity: 1;
+  transition: all 0.35s ease-in-out;
+}
+
+/* Posisi garis tengah */
+.navbar-toggler span {
+  top: 50%;
+  margin-top: -1.5px;
+}
+
+/* Garis atas & bawah */
+.navbar-toggler span::before {
+  content: "";
+  top: -10px;
+}
+.navbar-toggler span::after {
+  content: "";
+  top: 10px;
+}
+
+/* Warna default → langsung hitam */
+.navbar-toggler span,
+.navbar-toggler span::before,
+.navbar-toggler span::after {
+  background-color: #000; /* awal hitam */
+}
+
+/* Warna saat scroll → bisa tetap hitam atau ubah sesuai selera */
+.navbar-custom.navbar-scrolled .navbar-toggler span,
+.navbar-custom.navbar-scrolled .navbar-toggler span::before,
+.navbar-custom.navbar-scrolled .navbar-toggler span::after {
+  background-color: #000; /* tetap hitam */
+}
+
+/* Animasi ke bentuk silang */
+.navbar-toggler:not(.collapsed) span {
+  background-color: transparent;
+}
+.navbar-toggler:not(.collapsed) span::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+.navbar-toggler:not(.collapsed) span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+    /* Hilangkan kotak hitam saat toggle di focus */
+    .navbar-toggler:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+
+
 
     }
   </style>
@@ -113,7 +200,7 @@
   <!-- Navbar -->
   <nav id="navbar" class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Pamupukan UMKM</a>
+      <a class="navbar-brand fw-bold" href="index.html">Pamupukan UMKM</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -136,7 +223,7 @@
   <!-- Produk Section -->
   <section class="py-5 bg-light">
     <div class="container">
-      <h1 class="mb-4 text-center text-primary fw-bold">Produk UMKM Pamupukan</h1>
+      <h1 class="mb-4 text-center text-primary fw-bold">Produk UMKM KWT Desa Pamupukan</h1>
       <div class="row g-4">
 
         <!-- Produk 1 -->
@@ -173,7 +260,7 @@
             </div>
             <div class="card-body">
               <h6 class="fw-bold mb-1">Opak Nasi</h6>
-              <p class="text-muted small mb-1">Rp15.000 / bungkus</p>
+              <p class="text-muted small mb-1">Rp10.000 / bungkus</p>
               <p class="text-muted small">Opak nasi yang renyah dan gurih, oleh-oleh khas Kuningan produksi Kelompok Wanita Tani (KWT) Desa Pamupukan.</p>
               <div class="d-flex justify-content-between align-items-center">
                 <a href="https://wa.me/6281318673805" target="_blank"
@@ -221,7 +308,7 @@
             </div>
             <div class="card-body">
               <h6 class="fw-bold mb-1">Ragining</h6>
-              <p class="text-muted small mb-1">Rp???.??? / bungkus</p>
+              <p class="text-muted small mb-1">Rp10.000 / bungkus</p>
               <p class="text-muted small">Ragining, oleh-oleh khas Kuningan yang unik dan menggugah selera. Cocok dijadikan buah tangan dari desa.</p>
               <div class="d-flex justify-content-between align-items-center">
                 <a href="https://wa.me/6281318673805" target="_blank"
@@ -264,7 +351,7 @@
             </div>
             <div class="card-body">
               <h6 class="fw-bold mb-1">Opak Singkong</h6>
-              <p class="text-muted small mb-1">Rp???.??? / bungkus</p>
+              <p class="text-muted small mb-1">Rp10.000 / bungkus</p>
               <p class="text-muted small">Opak singkong renyah dan gurih khas Desa Pamupukan. Diproduksi oleh KWT (Kelompok Wanita Tani).</p>
               <div class="d-flex justify-content-between align-items-center">
                 <a href="https://wa.me/6281318673805" target="_blank"
@@ -386,11 +473,11 @@
       <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
         <h6 class="text-uppercase fw-bold mb-3 text-primary">Navigasi</h6>
         <ul class="list-unstyled">
-          <li><a href="#" class="text-decoration-none text-dark small">Beranda</a></li>
-          <li><a href="#about" class="text-decoration-none text-dark small">Tentang</a></li>
+          <li><a href="index.html" class="text-decoration-none text-dark small">Beranda</a></li>
+          <li><a href="index.html" class="text-decoration-none text-dark small">Tentang</a></li>
           <li><a href="#products" class="text-decoration-none text-dark small">Produk</a></li>
-          <li><a href="#gallery" class="text-decoration-none text-dark small">Galeri</a></li>
-          <li><a href="#contact" class="text-decoration-none text-dark small">Kontak</a></li>
+          <li><a href="index.html" class="text-decoration-none text-dark small">Galeri</a></li>
+          <li><a href="index.html" class="text-decoration-none text-dark small">Kontak</a></li>
         </ul>
       </div>
 
@@ -431,6 +518,34 @@
     <p class="mb-0 small text-muted">&copy; 2025 Pamupukan UMKM. All rights reserved.</p>
   </div>
 </footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+  
+    // Tutup toggle setiap kali halaman dimuat ulang
+    const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+    bsCollapse.hide();
+  
+    // Tutup toggle saat klik link menu
+    document.querySelectorAll('.navbar-nav .nav-link').forEach(function (link) {
+      link.addEventListener('click', function () {
+        bsCollapse.hide();
+      });
+    });
+  });
+  
+  // Tutup toggle juga saat kembali dari bfcache
+  window.addEventListener('pageshow', function (event) {
+    if (event.persisted) {
+      const navbarCollapse = document.querySelector('.navbar-collapse');
+      const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+      bsCollapse.hide();
+    }
+  });
+  </script>
+  
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   
