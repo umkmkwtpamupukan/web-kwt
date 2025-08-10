@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://umkmkwtpamupukan.netlify.app/sitemap.xml
